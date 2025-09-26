@@ -33,6 +33,7 @@
     "babel-plugin-transform-dynamic-import": "^2.1.0",
     "chokidar": "^3.6.0",
     "codecov": "^3.2.0",
+    "cross-env": "^10.0.0",
     "css": "^2.2.1",
     "css-loader": "^3.6.0",
     "eslint": "^7.7.0",
@@ -62,8 +63,8 @@
   "scripts": {
     "dev": "webpack-dev-server --hot --inline",
     "build": "npm run build:cjs && npm run build:esm && webpack",
-    "build:cjs": "BABEL_ENV=cjs babel src --out-dir ./dist/cjs",
-    "build:esm": "BABEL_ENV=esm babel src --out-dir ./dist/esm",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir ./dist/cjs",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --out-dir ./dist/esm",
     "watch": "npm run build:esm -- --watch",
     "build-styles-hljs": "node ./scripts/build-stylesheets-highlightjs.js",
     "build-languages-hljs": "node ./scripts/build-languages-highlightjs.js",
@@ -75,7 +76,8 @@
     "publish-coverage": "codecov",
     "format": "npm run prettier",
     "prettier": "prettier --write --no-editorconfig \"{src,scripts,__tests__}/**/*.js\"",
-    "lint": "eslint --ext .js,.jsx ./src ./scripts ./__tests__"
+    "lint": "eslint --ext .js,.jsx ./src ./scripts ./__tests__",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
