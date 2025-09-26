@@ -76,8 +76,7 @@
     "publish-coverage": "codecov",
     "format": "npm run prettier",
     "prettier": "prettier --write --no-editorconfig \"{src,scripts,__tests__}/**/*.js\"",
-    "lint": "eslint --ext .js,.jsx ./src ./scripts ./__tests__",
-    "prepare": "npm run build"
+    "lint": "eslint --ext .js,.jsx ./src ./scripts ./__tests__"
   },
   "repository": {
     "type": "git",
